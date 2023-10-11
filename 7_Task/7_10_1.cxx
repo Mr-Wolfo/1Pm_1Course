@@ -2,34 +2,33 @@
 
 int main()
 {
-	int size;
-	std::cin >> size;
-	int num = 0;
-	int a[size];
+    int a[10'000];
+	int n;
+	std::cin >> n;
+
 	int tmp;
-	int cl;
 	bool flag = false;
 	
 	// Блок ввода последовательности
-	for (int j = 0; j<size; j++)
+	for (int j = 0; j<n; j++)
 			std::cin >> a[j];
 	
 	// Блок суммы цифр чисел посл.
-	for (int j = 0; j<size; j++) {
-		cl = a[j];
-		while (cl) {
-			num += cl % 10;
-			cl /= 10;
+	for (int j = 0; j<n; j++) {
+        int num = 0;
+		tmp = a[j];
+		while (tmp) {
+			num += tmp % 10;
+			tmp /= 10;
 		}
 		if (num == 12)
 			flag = true;
-		num = 0;
 	}
-	
+
 	// Блок сортировки
 	if (flag != true) {
-		for (int i = 0; i<size; i++) {
-			for (int j = i+1; j<size; j++)
+		for (int i = 0; i<n; i++) {
+			for (int j = i+1; j<n; j++)
 				if (a[i]>a[j]) {
 					tmp = a[i];
 					a[i] = a[j];
@@ -37,12 +36,12 @@ int main()
 				}
 		}
 	}
-	
+
 	//Блок вывода посл.
-	for (int j = 0; j<size; j++) {
+	for (int j = 0; j < n; j++) {
 			std::cout << a[j] << " ";
 	}
-	
+
 	return 0;
-	
+
 }

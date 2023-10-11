@@ -1,50 +1,52 @@
 #include <iostream>
 
 int main() {
-    int size_i, size_j;
-    std::cin >> size_i >> size_j;
-    int A[size_i][size_j];
-    int col;
-    int k;
+
+    int A[100][100];
+    int n, m;
+    std::cin >> n >> m;
+
+    int max_count;
+    int column;
     bool flag = true;
 
-    for (int i = 0; i < size_i; i++)
-        for (int j = 0; j < size_j; j++)
+    // Блок ввода матрицы
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
             std::cin >> A[i][j];
 
-    for (int j = 0; j < size_j; j++) {
-
-        int x = 0;
-
-        for (int i = 0; i < size_i; i++) {
-
+    // Поиск столбца с меньшим кол-вом чисел % 10 == 3
+    for (int j = 0; j < m; j++) {
+        // Поиск кол-во чисел % 10 != 3
+        int count = 0;
+        for (int i = 0; i < n; i++) {
             if (A[i][j] % 10 != 3)
-                x += 1;
+                count += 1;
         }
-
         if (flag) {
-            col = x;
+            max_count = count;
             flag = false;
         }
-
-        if (x > col) {
-            col = x;
-            k = j;
+        if (count > max_count) {
+            max_count = count;
+            column = j;
         }
-
     }
 
-    for (int j = 0; j < size_j; j++) {
-        if (j == k)
+    // Блок замены элементов на -17
+    for (int j = 0; j < m; j++) {
+        if (j == column)
             continue;
-        for (int i = 0; i < size_i; i++)
+        for (int i = 0; i < n; i++)
             A[i][j] = -17;
-
     }
 
-    for (int i = 0; i < size_i; i++) {
-        for (int j = 0; j < size_j; j++)
+    // Блок вывода матрицы
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++)
             std::cout << A[i][j] << " ";
         std::cout << std::endl;
     }
+
+    return 0;
 }

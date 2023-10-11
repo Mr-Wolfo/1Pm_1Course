@@ -1,57 +1,56 @@
 #include <iostream>
 
 int main() {
-    int size;
-    std::cin >> size;
-    int a[size];
-    int ci, cj;
-    int comp_i, comp_j;
-    int sum_i, sum_j;
+
+    const int size_max = 1000;
+    int a[size_max];
+    int n;
+    std::cin >> n;
+
     int tmp;
+    int sum[size_max];
+    int comp[size_max];
 
     // Блок ввода последовательности
-    for (int x = 0; x<size; x++)
+    for (int x = 0; x < n; x++)
         std::cin >> a[x];
 
-    for (int i = 0; i<size; i++) {
-        for (int j = i+1; j<size; j++) {
-                comp_i = 1;
-                comp_j = 1;
-                sum_i = 0;
-                sum_j = 0;
-                ci = a[i];
-                cj = a[j];
-                while (ci) {
-                    comp_i *= ci % 10;
-                    sum_i += ci % 10;
-                    ci /= 10;
-                }
-                while (cj) {
-                    comp_j *= cj % 10;
-                    sum_j += cj % 10;
-                    cj /= 10;
-                }
-                if (comp_i > comp_j) {
-                    tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
-                }
-                else if (comp_i == comp_j && sum_i > sum_j) {
-                    tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
-                }
-                else if (a[i] > a[j]){
-                    tmp = a[i];
-                    a[i] = a[j];
-                    a[j] = tmp;
-                }
+    // Блок вычислений
+    for (int i = 0; i < n; i++) {
+        comp[i] = 1;
+        sum[i] = 0;
+        tmp = a[i];
+        while (tmp) {
+            comp[i] *= tmp % 10;
+            sum[i] += tmp % 10;
+            tmp /= 10;
+        }
+    }
+
+    // Основной блок
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            // Условия
+            if ((comp[i] > comp[j]) ||
+                (comp[i] == comp[j] && sum[i] > sum[j]) ||
+                (comp[i] == comp[j] && sum[i] == sum[j] && a[i] > a[j])) {
+                tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
+                tmp = comp[i];
+                comp[i] = comp[j];
+                comp[j] = tmp;
+                tmp = sum[i];
+                sum[i] = sum[j];
+                sum[j] = tmp;
+            }
         }
     }
 
     //Блок вывода посл.
-    for (int x = 0; x<size; x++) {
+    for (int x = 0; x < n; x++) {
         std::cout << a[x] << " ";
     }
 
+    return 0;
 }
