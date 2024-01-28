@@ -1,3 +1,0 @@
-C:/Users/maxim/CLionProjects/1Pm_1Course/2_Sem/1_Task/cmake-build-debug/CMakeFiles/1_Task.dir
-C:/Users/maxim/CLionProjects/1Pm_1Course/2_Sem/1_Task/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/maxim/CLionProjects/1Pm_1Course/2_Sem/1_Task/cmake-build-debug/CMakeFiles/rebuild_cache.dir
