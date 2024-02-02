@@ -43,7 +43,7 @@ int main ()
 {
     String A(5);
     A.StrOut();
-    String B(10);
+    String B(11);
     B.StrOut();
 
     B = A;
