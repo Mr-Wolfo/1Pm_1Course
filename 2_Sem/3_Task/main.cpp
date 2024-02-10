@@ -33,7 +33,7 @@ public:
         std::cout << m_len << std::endl;
     }
 
-    // Деконструктор
+    // Деструктор
     ~String() {
         delete[] str;
     }
