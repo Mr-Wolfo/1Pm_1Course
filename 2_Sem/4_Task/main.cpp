@@ -1,5 +1,5 @@
 #include <iostream>
-#include "src/ChoiceShape.cpp"
+#include "ChoiceShape.hpp"
 
 int main()
 {
