@@ -7,7 +7,7 @@ namespace wlf {
 
     class Circle {
 	private:
-        	bool m_hit;
+		bool m_hit;
 		float m_r;
 		float m_x, m_y;
 		float m_dx, m_dy;
@@ -26,7 +26,7 @@ namespace wlf {
 			m_r = r;
 			m_dx = dx;
 			m_dy = dy;
-            		m_hit = true;
+            m_hit = true;
 			m_shape.setOrigin(m_r, m_r);
 			m_shape.setRadius(m_r);
 			m_shape.setPosition(m_x, m_y);

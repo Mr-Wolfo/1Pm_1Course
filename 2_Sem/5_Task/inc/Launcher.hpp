@@ -12,7 +12,7 @@ namespace wlf {
 
 	class Launcher {
 	private:
-        	bool** m_hit;
+		bool** m_hit;
 		int m_width;
 		int m_height;
 		wlf::Circle* m_c;
@@ -29,13 +29,13 @@ namespace wlf {
 
 			m_n = n;
 
-            		m_hit = new bool* [m_n];
-            		for (int i = 0; i < m_n; i++)
-                		m_hit[i] = new bool [m_n];
+			m_hit = new bool* [m_n];
+			for (int i = 0; i < m_n; i++)
+				m_hit[i] = new bool [m_n];
 
-            		for (int i = 0; i < m_n-1; i++)
-               			for (int j = i + 1; j < m_n; j++)
-                    			m_hit[i][j] = true;
+			for (int i = 0; i < m_n-1; i++)
+				for (int j = i + 1; j < m_n; j++)
+					m_hit[i][j] = true;
 
 			m_window.create(sf::VideoMode(m_width, m_height), "Task 5");
 
@@ -70,9 +70,9 @@ namespace wlf {
         {
 			float x1 = obj.X();
 			float y1 = obj.Y();
-            		float r1 = obj.R();
-            		float dx1 = obj.dx();
-            		float dy1 = obj.dy();
+			float r1 = obj.R();
+			float dx1 = obj.dx();
+			float dy1 = obj.dy();
 
 			float x2 = obj2.X();
 			float y2 = obj2.Y();
@@ -113,10 +113,10 @@ namespace wlf {
 			}
 
             // Готовность к следующему столкновению
-            		if (Dist < (r1 + r2))
-                		m_hit[i][j] = false;
-            		else
-                		m_hit[i][j] = true;
+			if (Dist < (r1 + r2))
+				m_hit[i][j] = false;
+			else
+				m_hit[i][j] = true;
 		}
 
 		void Life()
@@ -141,8 +141,8 @@ namespace wlf {
 
 				for (int i = 0; i < m_n; i++) {
 					TouchBorder(m_c[i]);
-                    			for (int j = i + 1; j < m_n; j++)
-                        			TouchCircle(m_c[i], m_c[j], i, j);
+                    for (int j = i + 1; j < m_n; j++)
+                        TouchCircle(m_c[i], m_c[j], i, j);
 				}
 
 				m_window.clear();
@@ -156,9 +156,9 @@ namespace wlf {
 		~Launcher()
 		{
 			delete[] m_c;
-            		for (int i = 1; i < m_n; i++)
-                		delete[] m_hit[i];
-            		delete[] m_hit;
+			for (int i = 1; i < m_n; i++)
+				delete[] m_hit[i];
+			delete[] m_hit;
 		}
 	};
 }
