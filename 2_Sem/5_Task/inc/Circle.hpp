@@ -7,10 +7,10 @@ namespace wlf {
 
     class Circle {
 	private:
+        bool m_hit;
 		float m_r;
 		float m_x, m_y;
 		float m_dx, m_dy;
-        bool m_hit;
 		sf::CircleShape m_shape;
 
 	public:

@@ -37,7 +37,7 @@ namespace wlf {
                 for (int j = i + 1; j < m_n; j++)
                     m_hit[i][j] = true;
 
-			m_window.create(sf::VideoMode(m_width, m_height), "Task_5");
+			m_window.create(sf::VideoMode(m_width, m_height), "Task 5");
 
 			m_c = new wlf::Circle[m_n];
 
