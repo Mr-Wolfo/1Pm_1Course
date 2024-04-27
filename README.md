@@ -1,4 +1,4 @@
-<<SUBSEA>>
+"SUBSEA"
 
 Esc - закрыть окно
 WASD - управление
